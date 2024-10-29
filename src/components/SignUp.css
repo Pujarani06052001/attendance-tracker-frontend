@@ -1,0 +1,107 @@
+.signup-container {
+    background: linear-gradient(145deg, #f0f8ff, #e0e7ff);
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.signup-container:hover {
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.signup-container h2 {
+    color: #3a4a64; 
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-container input,
+.signup-container select {
+    border: 1px solid #d0d7e2;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    color: #3a4a64;
+    margin-bottom: 15px;
+    background-color: #f7faff;
+    transition: all 0.3s ease;
+}
+
+.signup-container input:focus,
+.signup-container select:focus {
+    border-color: #f23abb; 
+    background-color: #eaf2ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(242, 58, 187, 0.3);
+}
+
+.signup-container button {
+    background-color: purple; 
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-container button:hover {
+    background-color: hsl(319, 61%, 48%); 
+}
+
+.signup-container p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #4a5a76;
+}
+
+.signup-container a {
+    color: #d63af2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.signup-container a:hover {
+    color: #ba30c7; 
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 20px; 
+        max-width: 90%; 
+    }
+
+    .signup-container h2 {
+        font-size: 22px;
+        margin-bottom: 15px; 
+    }
+
+    .signup-container input,
+    .signup-container select {
+        font-size: 14px; 
+        padding: 10px; 
+    }
+
+    .signup-container button {
+        font-size: 14px; 
+        padding: 10px; 
+    }
+
+    .signup-container p {
+        font-size: 12px; 
+    }
+}
