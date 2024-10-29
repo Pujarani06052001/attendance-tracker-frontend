@@ -5,13 +5,14 @@ import './Navbar.css';
 function Navbar() {
   return (
     <nav className="navbar">
-      <h1 className="navbar-title">My Website</h1>
+      <h1 className="navbar-title">Attendance-Tracker
+      </h1>
       <ul className="navbar-links">
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/Signup">Signup Page</Link>
+          <Link to="/Signup">Signup</Link>
         </li>
         <li>
           <Link to="/Login">Login</Link>
