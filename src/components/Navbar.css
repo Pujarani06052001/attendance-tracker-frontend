@@ -1,4 +1,3 @@
-/* Navbar styles */
 .navbar {
   background-color: purple; 
   padding: 1rem 1.5rem;
@@ -42,7 +41,6 @@
   transform: translateY(-2px); 
 }
 
-/* Mobile styles */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column; 
@@ -79,4 +77,18 @@
     background-color: rgba(53, 15, 129, 0.3);
     transform: scale(1.05); 
   }
+}
+
+
+.logout-button {
+  background-color: hsl(141, 66%, 61%); 
+  color: white; 
+  border: none; 
+  padding: 10px 15px; 
+  border-radius: 5px;
+  cursor: pointer; 
+}
+
+.logout-button:hover {
+  background-color: purple; 
 }
