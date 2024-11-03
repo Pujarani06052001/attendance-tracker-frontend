@@ -3,9 +3,27 @@
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    max-width: 800px; /* Increase max-width for better layout */
     margin: 2rem auto; 
-    text-align: center; 
+    display: flex; /* Use Flexbox */
+    align-items: center; /* Center items vertically */
+}
+
+.content {
+    display: flex; /* Use Flexbox for inner content */
+    flex-direction: row; /* Arrange items in a row */
+    width: 100%; /* Full width */
+}
+
+.text-section {
+    flex: 1; /* Allow text to take available space */
+    text-align: left; /* Align text to the left */
+}
+
+.home-image {
+    width: 50%; /* Adjust image width */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 20px; /* Add space between text and image */
 }
 
 .home-title {
