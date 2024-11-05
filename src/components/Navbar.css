@@ -45,7 +45,7 @@
   .navbar {
     flex-direction: column; 
     padding: 1rem; 
-    background-color: purple; 
+    background-color: #003366; 
   }
 
   .navbar-title {
