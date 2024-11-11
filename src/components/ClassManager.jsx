@@ -9,7 +9,8 @@ const ClassManager = () => {
   const [currentClass, setCurrentClass] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const token = localStorage.getItem('token'); 
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
     fetchClasses();
   }, []);
@@ -32,7 +33,7 @@ const ClassManager = () => {
       await axios.post('http://localhost:7000/class/add', newClass, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      fetchClasses(); 
+      fetchClasses();
     } catch (error) {
       console.error('Error adding class:', error);
     }
@@ -43,8 +44,8 @@ const ClassManager = () => {
       await axios.put(`http://localhost:7000/class/update/${updatedClass._id}`, updatedClass, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      fetchClasses(); 
-      setCurrentClass(null); 
+      fetchClasses();
+      setCurrentClass(null); // Reset current class after updating
     } catch (error) {
       console.error('Error updating class:', error);
     }
@@ -55,26 +56,38 @@ const ClassManager = () => {
       await axios.delete(`http://localhost:7000/class/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      fetchClasses(); 
+      fetchClasses();
     } catch (error) {
       console.error('Error deleting class:', error);
     }
   };
 
   return (
-    <div className="class-manager">
-      <ClassForm
-        onAddClass={addClass}
-        onUpdateClass={updateClass}
-        currentClass={currentClass}
-        setCurrentClass={setCurrentClass}
-      />
-      {loading ? (
-        <p>Loading classes...</p>
-      ) : (
-        <ClassList classes={classes} onEdit={setCurrentClass} onDelete={deleteClass} />
-      )}
-    </div>
+    <>
+      <div className="class-manager-container">
+        <div className="intro-and-form">
+          <div className="class-manager-text">
+            <h4>Effortlessly Manage Attendance with Our Innovative System!</h4>
+            <p>Simplify your process and focus on what matters with our powerful attendance solution.</p>
+          </div>
+          <div className="form-container">
+            <ClassForm
+              onAddClass={addClass}
+              onUpdateClass={updateClass}
+              currentClass={currentClass}
+              setCurrentClass={setCurrentClass}
+            />
+          </div>
+        </div>
+        <div className="class-list-container">
+          {loading ? (
+            <p>Loading classes...</p>
+          ) : (
+            <ClassList classes={classes} onEdit={setCurrentClass} onDelete={deleteClass} />
+          )}
+        </div>
+      </div>
+    </>
   );
 };
 
