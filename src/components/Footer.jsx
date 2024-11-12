@@ -19,10 +19,10 @@ const Footer = () => {
                     <div className="flex flex-col text-start mb-4 md:mb-0">
                         {[
                             { name: 'Home', path: '/' },
-                            { name: 'Features', path: '/features' },
-                            { name: 'Support', path: '/support' },
-                            { name: 'FAQs', path: '/faqs' },
-                            { name: 'Contact Us', path: '/contact' }
+                            { name: 'Class List', path: '/' },
+                            { name: 'Add Class', path: '/' },
+                            { name: 'Class Manager', path: '/' },
+                            { name: 'Contact Us', path: '/' }
                         ].map(({ name, path }) => (
                             <Link
                                 key={name}
