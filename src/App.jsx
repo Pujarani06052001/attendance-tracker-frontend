@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home';
+import Footer from './components/Footer';
 import ClassList from './components/ClassList';
 import ClassManager from './components/ClassManager';
 import ClassForm from './components/ClassForm';
@@ -24,6 +25,7 @@ function App() {
 
         </Routes>
       </div>
+      <Footer/>
     </Router>
   );
 }
