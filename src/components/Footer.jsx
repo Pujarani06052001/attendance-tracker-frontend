@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'; // If you're using react-router for nav
 
 const Footer = () => {
     return (
-        <footer className="text-white py-20 bg-customPurple h-[400px] pt-[14px]">
+        <footer className="text-white py-20 bg-[#003366] h-[400px] pt-[14px]">
             <div className="container mx-auto px-20 lg:px-20 py-20 flex flex-col gap-10 md:flex-row justify-between border-t border-slate-800">
                 <div className="flex">
                     <div className="font-bold text-center">
