@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Login.css';
 
 const Login = () => {
@@ -14,28 +15,19 @@ const Login = () => {
 
     try {
       // Send login request to backend
-      const response = await fetch('http://localhost:7000/user/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
+      const response = await axios.post('/user/login', {
+        email,
+        password,
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        setSuccessMessage('Login successful!'); 
-        setTimeout(() => {
-          setSuccessMessage(''); 
-          navigate('/'); 
-        }, 3000);
-      } else {
-        setError(data.error || 'Login failed. Please try again.');
-      }
+      localStorage.setItem('token', response.data.token);
+      setSuccessMessage('Login successful!'); 
+      setTimeout(() => {
+        setSuccessMessage(''); 
+        navigate('/'); 
+      }, 3000);
     } catch (err) {
-      setError('Something went wrong. Please try again later.');
+      setError(err.response?.data?.error || 'Login failed. Please try again.');
     }
   };
 
