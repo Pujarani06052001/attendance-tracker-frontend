@@ -17,7 +17,7 @@ const ClassManager = () => {
 
   const fetchClasses = async () => {
     try {
-      const response = await axios.get('http://localhost:7000/class/all', {
+      const response = await axios.get('/class/all', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setClasses(response.data);
@@ -30,7 +30,7 @@ const ClassManager = () => {
 
   const addClass = async (newClass) => {
     try {
-      await axios.post('http://localhost:7000/class/add', newClass, {
+      await axios.post('/class/add', newClass, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchClasses();
@@ -41,7 +41,7 @@ const ClassManager = () => {
 
   const updateClass = async (updatedClass) => {
     try {
-      await axios.put(`http://localhost:7000/class/update/${updatedClass._id}`, updatedClass, {
+      await axios.put(`/class/update/${updatedClass._id}`, updatedClass, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchClasses();
@@ -53,7 +53,7 @@ const ClassManager = () => {
 
   const deleteClass = async (id) => {
     try {
-      await axios.delete(`http://localhost:7000/class/delete/${id}`, {
+      await axios.delete(`/class/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchClasses();
