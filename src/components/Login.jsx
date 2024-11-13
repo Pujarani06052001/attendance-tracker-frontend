@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Login.css';
 
 const Login = () => {
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -18,7 +19,7 @@ const Login = () => {
       const response = await axios.post('/user/login', {
         email,
         password,
-        
+
       });
 
       localStorage.setItem('token', response.data.token);
