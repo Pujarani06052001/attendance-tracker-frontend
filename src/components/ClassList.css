@@ -1,32 +1,79 @@
+.class-manager-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 0px;
+}
 
-.class-list {
-    margin-top: 20px;
+.class-manager-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.class-manager-form input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+}
+
+.class-manager-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+.class-manager-form button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.class-manager-form button:hover {
+  background: linear-gradient(135deg, #0056b3, #003b7d);
+  transform: translateY(-2px);
+}
+
+.cancel-button {
+  background: linear-gradient(135deg, #6c757d, #495057);
+}
+
+.cancel-button:hover {
+  background: linear-gradient(135deg, #495057, #343a40);
+}
+
+.class-manager-form button:active {
+  transform: scale(0.98);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .class-list ul {
-    list-style-type: none;
-    padding: 0;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .class-list li {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f7f7f7;
-  }
-  
-  .class-list button {
-    margin-right: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .class-list button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+.class-manager-form {
+  animation: slideIn 0.5s ease-out;
+}

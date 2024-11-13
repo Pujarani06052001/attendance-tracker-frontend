@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ClassForm.css';
 
-const ClassForm = ({ onAddClass, onUpdateClass, currentClass, setCurrentClass }) => {
+const ClassManagerForm = ({ onAddClass, onUpdateClass, currentClass, setCurrentClass }) => {
   const [formData, setFormData] = useState({ name: '', description: '', time: '', teacherId: '', students: [] });
 
   useEffect(() => {
@@ -29,15 +29,15 @@ const ClassForm = ({ onAddClass, onUpdateClass, currentClass, setCurrentClass })
   };
 
   return (
-    <form className="class-form" onSubmit={handleSubmit}>
+    <form className="class-manager-form" onSubmit={handleSubmit}>
       <input type="text" name="name" placeholder="Class Name" value={formData.name} onChange={handleChange} required />
       <input type="text" name="description" placeholder="Description" value={formData.description} onChange={handleChange} required />
       <input type="text" name="time" placeholder="Class Time" value={formData.time} onChange={handleChange} required />
       <input type="text" name="teacherId" placeholder="Teacher ID" value={formData.teacherId} onChange={handleChange} required />
       <button type="submit">{currentClass ? 'Update Class' : 'Add Class'}</button>
-      {currentClass && <button type="button" onClick={() => setCurrentClass(null)}>Cancel</button>}
+      {currentClass && <button type="button" className="cancel-button" onClick={() => setCurrentClass(null)}>Cancel</button>}
     </form>
   );
 };
 
-export default ClassForm;
+export default ClassManagerForm;
