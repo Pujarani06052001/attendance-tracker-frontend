@@ -1,38 +1,95 @@
+// import React from 'react';
+
+// const AttendanceHelpPage = () => {
+//   return (
+//     <div className="bg-[#F0F0F0] flex items-center justify-center h-[800px]">
+//       <div className="flex max-w-6xl ml-[-491px]">
+        
+//         {/* Left Side - Text Section */}
+//         <div className="flex flex-col w-1/2 p-8 mt-[35px] mr-[241px] xl:ml-[131px]">
+//           <h1 className="text-4xl font-bold mb-4 h-[30px] text-gray-500">You're In Good Hands,</h1>
+//           <h1 className="text-[50px] text-[#1C8DCE] w-[509px] mt-[10px]">Attendance Tracking Made Easy</h1>
+//           <p className="text-[20px] mb-4 text-black w-[700px] h-[48px] mt-[20px]">
+//             Need Help With Tracking Attendance? You're Not Alone. We're Here To Assist!
+//           </p>
+//           <p className="text-[20px] mb-4 text-black w-[750px] h-[72px]">
+//             We understand that managing attendance can be tricky, but we're here to make it simple and seamless for you.
+//             If you're having trouble or need help understanding the features, feel free to reach out. Our team is ready to assist.
+//           </p>
+
+//           {/* Live Chat Support Box */}
+//           <div className="bg-white rounded-lg shadow-md p-6 mt-6 w-[443px] h-[337px]">
+//             <img
+//               src="https://cdn-icons-png.flaticon.com/128/566/566718.png"
+//               alt="Support Agents"
+//               width={100}
+//               height={100}
+//               objectFit="cover"
+//               className="ml-[139px]"
+//             />
+//             <div className="flex items-center mb-4">
+//               <span className="ml-4 text-gray-700">
+//                 Live chat support allows you to quickly get in touch with an expert who can help you resolve any attendance-related issues.
+//               </span>
+//             </div>
+//             <button className="bg-[#1C8DCE] text-white px-4 py-2 rounded-lg w-[353px] h-[49px]">
+//               Start Live Chat
+//             </button>
+//           </div>
+//         </div>
+
+//         {/* Right Side - Image */}
+//         <img
+//           src="https://media.istockphoto.com/id/1167651240/vector/attendance-concept-businessman-holding-document-vector-flat-design-man-hold-document.jpg?s=612x612&w=0&k=20&c=DHr2ZaBkHuSkcZOcrt3djH3N0SdlRZS74gtbzQzPLT0="
+//           alt="Attendance Tracker"
+//           className="h-[700px] w-[700px] mt-[53px] ml-[135px] xl:ml-[-7px] mb-[50px]"
+//         />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default AttendanceHelpPage;
+
+
 import React from 'react';
 
 const AttendanceHelpPage = () => {
   return (
-    <div className="bg-[#F0F0F0] flex items-center justify-center h-[800px]">
-      <div className="flex max-w-6xl ml-[-491px]">
+    <div className="bg-[#F0F0F0] flex items-center justify-center h-auto p-4">
+      <div className="flex flex-col lg:flex-row max-w-6xl w-full mx-auto">
         
         {/* Left Side - Text Section */}
-        <div className="flex flex-col w-1/2 p-8 mt-[35px] mr-[241px] xl:ml-[131px]">
-          <h1 className="text-4xl font-bold mb-4 h-[30px] text-gray-500">You're In Good Hands,</h1>
-          <h1 className="text-[50px] text-[#1C8DCE] w-[509px] mt-[10px]">Attendance Tracking Made Easy</h1>
-          <p className="text-[20px] mb-4 text-black w-[700px] h-[48px] mt-[20px]">
+        <div className="flex flex-col w-full lg:w-1/2 p-8 mt-[35px] lg:ml-[131px]">
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-500">
+            You're In Good Hands,
+          </h1>
+          <h1 className="text-4xl lg:text-[50px] text-[#1C8DCE] w-full mt-[10px]">
+            Attendance Tracking Made Easy
+          </h1>
+          <p className="text-[18px] lg:text-[20px] mb-4 text-black mt-[20px]">
             Need Help With Tracking Attendance? You're Not Alone. We're Here To Assist!
           </p>
-          <p className="text-[20px] mb-4 text-black w-[750px] h-[72px]">
+          <p className="text-[18px] lg:text-[20px] mb-4 text-black">
             We understand that managing attendance can be tricky, but we're here to make it simple and seamless for you.
             If you're having trouble or need help understanding the features, feel free to reach out. Our team is ready to assist.
           </p>
 
           {/* Live Chat Support Box */}
-          <div className="bg-white rounded-lg shadow-md p-6 mt-6 w-[443px] h-[337px]">
+          <div className="bg-white rounded-lg shadow-md p-6 mt-6 w-full sm:w-[443px] h-auto sm:h-[337px]">
             <img
               src="https://cdn-icons-png.flaticon.com/128/566/566718.png"
               alt="Support Agents"
               width={100}
               height={100}
-              objectFit="cover"
-              className="ml-[139px]"
+              className="ml-auto mb-4"
             />
             <div className="flex items-center mb-4">
-              <span className="ml-4 text-gray-700">
+              <span className="text-gray-700 text-sm sm:text-base">
                 Live chat support allows you to quickly get in touch with an expert who can help you resolve any attendance-related issues.
               </span>
             </div>
-            <button className="bg-[#1C8DCE] text-white px-4 py-2 rounded-lg w-[353px] h-[49px]">
+            <button className="bg-[#1C8DCE] text-white px-6 py-3 rounded-lg w-full sm:w-[353px]">
               Start Live Chat
             </button>
           </div>
@@ -42,7 +99,7 @@ const AttendanceHelpPage = () => {
         <img
           src="https://media.istockphoto.com/id/1167651240/vector/attendance-concept-businessman-holding-document-vector-flat-design-man-hold-document.jpg?s=612x612&w=0&k=20&c=DHr2ZaBkHuSkcZOcrt3djH3N0SdlRZS74gtbzQzPLT0="
           alt="Attendance Tracker"
-          className="h-[700px] w-[700px] mt-[53px] ml-[135px] xl:ml-[-7px] mb-[50px]"
+          className="w-full sm:w-[700px] h-auto mt-8 sm:mt-[53px] mb-8 sm:ml-[135px] xl:ml-[-7px] 2xl:w-[700px] 2xl:h-[700px]"
         />
       </div>
     </div>
@@ -50,3 +107,4 @@ const AttendanceHelpPage = () => {
 };
 
 export default AttendanceHelpPage;
+
