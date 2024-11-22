@@ -11,8 +11,6 @@ import ClassForm from './components/ClassForm';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 
-
-
 function App() {
   return (
     <Router>      
@@ -27,11 +25,10 @@ function App() {
           <Route path='/ClassManager' element={<ClassManager/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
 
-          
 
         </Routes>
       </div>
-     
+      
       <Footer/>
     </Router>
   );
