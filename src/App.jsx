@@ -9,7 +9,7 @@ import ClassList from './components/ClassList';
 import ClassManager from './components/ClassManager';
 import ClassForm from './components/ClassForm';
 import Home from './components/Home';
-
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -23,7 +23,8 @@ function App() {
           <Route path='/ClassList' element={<ClassList/>}/>
           <Route path='/ClassForm' element={<ClassForm/>}/>
           <Route path='/ClassManager' element={<ClassManager/>}/>
-          
+          <Route path='/Dashboard' element={<Dashboard/>}/>
+
 
         </Routes>
       </div>

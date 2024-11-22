@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css'; 
+// import Home from './Home.jsx';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ function Navbar() {
 
   const isLoggedIn = !!localStorage.getItem('token'); 
   return (
+    <>
     <nav className="navbar">
       <h1 className="navbar-title">Attendance Tracker</h1>
       <ul className="navbar-links">
@@ -22,6 +24,9 @@ function Navbar() {
           <>
             <li>
               <Link to="/ClassList">Class List</Link>
+            </li>
+            <li>
+              <Link to="/Dashboard">Dashboard</Link>
             </li>
             <li>
               <Link to="/ClassForm">Add Class</Link>
@@ -45,6 +50,8 @@ function Navbar() {
         )}
       </ul>
     </nav>
+    {/* <Home/> */}
+    </> 
   );
 }
 
