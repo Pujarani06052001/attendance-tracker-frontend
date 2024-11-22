@@ -9,37 +9,65 @@ const ClassManager = () => {
   const [currentClass, setCurrentClass] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Retrieve the token from localStorage
   const token = localStorage.getItem('token');
+  console.log('Token:', token); // For debugging - Check if the token is correctly retrieved
 
   useEffect(() => {
     fetchClasses();
   }, []);
 
+  // Function to handle errors, specifically 401 Unauthorized
+  const handleError = (error) => {
+    if (error.response && error.response.status === 401) {
+      console.error('Unauthorized access - maybe the token is invalid or expired');
+      // Optionally, redirect to login page or display an error message
+    } else {
+      console.error('An error occurred:', error);
+    }
+  };
+
+  // Fetch classes function with error handling for missing token
   const fetchClasses = async () => {
+    if (!token) {
+      console.error('No token found, please log in.');
+      setLoading(false);
+      return;
+    }
     try {
       const response = await axios.get('/class/all', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setClasses(response.data);
     } catch (error) {
-      console.error('Error fetching classes:', error);
+      handleError(error);
     } finally {
       setLoading(false);
     }
   };
 
+  // Add a new class
   const addClass = async (newClass) => {
+    if (!token) {
+      console.error('No token found, please log in.');
+      return;
+    }
     try {
       await axios.post('/class/add', newClass, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchClasses();
     } catch (error) {
-      console.error('Error adding class:', error);
+      handleError(error);
     }
   };
 
+  // Update an existing class
   const updateClass = async (updatedClass) => {
+    if (!token) {
+      console.error('No token found, please log in.');
+      return;
+    }
     try {
       await axios.put(`/class/update/${updatedClass._id}`, updatedClass, {
         headers: { Authorization: `Bearer ${token}` },
@@ -47,18 +75,23 @@ const ClassManager = () => {
       fetchClasses();
       setCurrentClass(null); // Reset current class after updating
     } catch (error) {
-      console.error('Error updating class:', error);
+      handleError(error);
     }
   };
 
+  // Delete a class
   const deleteClass = async (id) => {
+    if (!token) {
+      console.error('No token found, please log in.');
+      return;
+    }
     try {
       await axios.delete(`/class/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchClasses();
     } catch (error) {
-      console.error('Error deleting class:', error);
+      handleError(error);
     }
   };
 
