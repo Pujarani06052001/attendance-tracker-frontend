@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Dashboard.css";
-import { FaTable, FaChartBar } from "react-icons/fa";
+import { FaTable, FaChartBar, FaList, FaPlus, FaCog } from "react-icons/fa";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -78,8 +79,22 @@ const Dashboard = () => {
       <div className="container">
         <aside className="sidebar">
           <ul>
-            <li><FaTable /> Attendance</li>
-            <li><FaChartBar /> Analytics</li>
+           
+            <li>
+              <Link to="/Dashboard">
+                <FaChartBar /> Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link to="/ClassForm">
+                <FaPlus /> Add Class
+              </Link>
+            </li>
+            <li>
+              <Link to="/ClassManager">
+                <FaCog /> Class Manager
+              </Link>
+            </li>
           </ul>
         </aside>
 

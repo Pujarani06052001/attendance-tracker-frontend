@@ -1,19 +1,19 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Navbar.css'; 
-// import Home from './Home.jsx';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
 
+  // Function to handle logout
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
+    localStorage.removeItem("token");
+    navigate("/"); // Redirect to home page after logout
   };
 
-  const isLoggedIn = !!localStorage.getItem('token'); 
+  const isLoggedIn = !!localStorage.getItem("token"); // Check login state
+
   return (
-    <>
     <nav className="navbar">
       <h1 className="navbar-title">Attendance Tracker</h1>
       <ul className="navbar-links">
@@ -23,19 +23,12 @@ function Navbar() {
         {isLoggedIn ? (
           <>
             <li>
-              <Link to="/ClassList">Class List</Link>
-            </li>
-            <li>
               <Link to="/Dashboard">Dashboard</Link>
             </li>
             <li>
-              <Link to="/ClassForm">Add Class</Link>
-            </li>
-            <li>
-              <Link to="/ClassManager">Class Manager</Link>
-            </li>
-            <li>
-              <button onClick={handleLogout} className="logout-button">Logout</button>
+              <button onClick={handleLogout} className="logout-button">
+                Logout
+              </button>
             </li>
           </>
         ) : (
@@ -50,8 +43,6 @@ function Navbar() {
         )}
       </ul>
     </nav>
-    {/* <Home/> */}
-    </> 
   );
 }
 
