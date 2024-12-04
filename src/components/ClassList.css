@@ -47,7 +47,7 @@
 }
 
 .class-manager-form button:hover {
-  background: linear-gradient(135deg, #0056b3, #003b7d);
+  background: linear-gradient(135deg, green, green);
   transform: translateY(-2px);
 }
 
