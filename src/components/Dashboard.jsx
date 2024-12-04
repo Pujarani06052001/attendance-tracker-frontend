@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Dashboard.css";
+import "../components/Dashboard.css";
 import { FaChartBar, FaPlus, FaCog } from "react-icons/fa";
 import { Bar } from "react-chartjs-2";
 import {
