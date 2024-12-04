@@ -85,11 +85,11 @@ const Dashboard = () => {
                 <FaChartBar /> Dashboard
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/ClassForm">
                 <FaPlus /> Add Class
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/ClassManager">
                 <FaCog /> Class Manager

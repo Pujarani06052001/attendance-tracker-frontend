@@ -24,8 +24,6 @@ function App() {
           <Route path='/ClassForm' element={<ClassForm/>}/>
           <Route path='/ClassManager' element={<ClassManager/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
-
-
         </Routes>
       </div>
       
