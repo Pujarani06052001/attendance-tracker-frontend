@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -15,33 +15,66 @@ import { Link } from 'react-router-dom';
 import "./components/Dashboard.css";
 
 function App() {
+  const [isSidebarVisible, setSidebarVisible] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebarVisible(!isSidebarVisible);
+  };
+
   return (
     <Router>
+      <AppContent toggleSidebar={toggleSidebar} isSidebarVisible={isSidebarVisible} />
+    </Router>
+  );
+}
+
+function AppContent({ toggleSidebar, isSidebarVisible }) {
+  const location = useLocation();  // Get the current route
+
+  // Conditionally hide sidebar on home page
+  const shouldHideSidebar = location.pathname === "/";
+
+  return (
+    <>
       <Navbar />
       <div className="layout" style={{ display: "flex" }}>
         {/* Sidebar */}
-        <aside className="sidebar">
-          <ul>
-            <li>
-              <Link to="/Dashboard">
-                <span className="emoji">📊</span> Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link to="/ClassForm">
-                <span className="emoji">➕</span> Add Class
-              </Link>
-            </li>
-            <li>
-              <Link to="/ClassManager">
-                <span className="emoji">⚙️</span> Class Manager
-              </Link>
-            </li>
-          </ul>
-        </aside>
+        {!shouldHideSidebar && isSidebarVisible && (
+          <aside className="sidebar">
+            <ul>
+              <li>
+                <Link to="/Dashboard">
+                  <span className="emoji">📊</span> Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link to="/ClassForm">
+                  <span className="emoji">➕</span> Add Class
+                </Link>
+              </li>
+              <li>
+                <Link to="/ClassManager">
+                  <span className="emoji">⚙️</span> Class Manager
+                </Link>
+              </li>
+            </ul>
+          </aside>
+        )}
 
         {/* Main Content Area */}
-        <main className="main-content" style={{ flex: 1, padding: "20px" }}>
+        <main
+          className="main-content"
+          style={{
+            flex: 1,
+            padding: "20px",
+            marginLeft: !shouldHideSidebar && isSidebarVisible ? "200px" : "0", // Adjust main content margin based on sidebar visibility
+          }}
+        >
+          {/* Toggle Button for Sidebar */}
+          <button onClick={toggleSidebar} style={{ position: "absolute", top: "20px", left: "20px" }}>
+            {isSidebarVisible ? "Hide Sidebar" : "Show Sidebar"}
+          </button>
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Signup" element={<Signup />} />
@@ -54,7 +87,7 @@ function App() {
         </main>
       </div>
       <Footer />
-    </Router>
+    </>
   );
 }
 
