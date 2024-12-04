@@ -12,7 +12,7 @@ import Dashboard from "./components/Dashboard";
 import { FaChartBar, FaPlus, FaCog } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-import "./components/Dashboard.css";
+import "./App.css";
 
 function App() {
   const [isSidebarVisible, setSidebarVisible] = useState(true);
@@ -67,7 +67,7 @@ function AppContent({ toggleSidebar, isSidebarVisible }) {
           style={{
             flex: 1,
             padding: "20px",
-            marginLeft: !shouldHideSidebar && isSidebarVisible ? "200px" : "0", // Adjust main content margin based on sidebar visibility
+            marginLeft: !shouldHideSidebar && isSidebarVisible ? "" : "0", // Adjust main content margin based on sidebar visibility
           }}
         >
           {/* Toggle Button for Sidebar */}
