@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import ClassForm from './ClassForm';
 import ClassList from './ClassList';
@@ -11,23 +12,39 @@ const ClassManager = () => {
 
   // Retrieve the token from localStorage
   const token = localStorage.getItem('token');
-  console.log('Token:', token); // For debugging - Check if the token is correctly retrieved
+  console.log('Token:', token); // Debugging
+
+  // Check token expiration and handle logout
+  const checkTokenExpiration = () => {
+    if (token) {
+      const base64Url = token.split('.')[1];
+      const decodedValue = JSON.parse(atob(base64Url));
+      const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+      if (decodedValue.exp < currentTime) {
+        console.warn('Token expired. Logging out...');
+        localStorage.removeItem('token');
+        window.location.href = '/login'; // Redirect to login page
+      }
+    }
+  };
 
   useEffect(() => {
+    checkTokenExpiration();
     fetchClasses();
   }, []);
 
-  // Function to handle errors, specifically 401 Unauthorized
+  // Handle errors (401 Unauthorized or other errors)
   const handleError = (error) => {
     if (error.response && error.response.status === 401) {
       console.error('Unauthorized access - maybe the token is invalid or expired');
-      // Optionally, redirect to login page or display an error message
+      localStorage.removeItem('token');
+      window.location.href = '/login'; // Redirect to login
     } else {
       console.error('An error occurred:', error);
     }
   };
 
-  // Fetch classes function with error handling for missing token
+  // Fetch classes
   const fetchClasses = async () => {
     if (!token) {
       console.error('No token found, please log in.');
@@ -78,6 +95,7 @@ const ClassManager = () => {
       handleError(error);
     }
   };
+  
 
   // Delete a class
   const deleteClass = async (id) => {
@@ -96,32 +114,31 @@ const ClassManager = () => {
   };
 
   return (
-    <>
-      <div className="class-manager-container">
-        <div className="intro-and-form">
-          <div className="class-manager-text">
-            <h4>Effortlessly Manage Attendance with Our Innovative System!</h4>
-            <p>Simplify your process and focus on what matters with our powerful attendance solution.</p>
-          </div>
-          <div className="form-container">
-            <ClassForm
-              onAddClass={addClass}
-              onUpdateClass={updateClass}
-              currentClass={currentClass}
-              setCurrentClass={setCurrentClass}
-            />
-          </div>
+    <div className="class-manager-container">
+      <div className="intro-and-form">
+        <div className="class-manager-text">
+          <h4>Effortlessly Manage Attendance with Our Innovative System!</h4>
+          <p>Simplify your process and focus on what matters with our powerful attendance solution.</p>
         </div>
-        <div className="class-list-container">
-          {loading ? (
-            <p>Loading classes...</p>
-          ) : (
-            <ClassList classes={classes} onEdit={setCurrentClass} onDelete={deleteClass} />
-          )}
+        <div className="form-container">
+          <ClassForm
+            onAddClass={addClass}
+            onUpdateClass={updateClass}
+            currentClass={currentClass}
+            setCurrentClass={setCurrentClass}
+          />
         </div>
       </div>
-    </>
+      <div className="class-list-container">
+        {loading ? (
+          <p>Loading classes...</p>
+        ) : (
+          <ClassList classes={classes} onEdit={setCurrentClass} onDelete={deleteClass} />
+        )}
+      </div>
+    </div>
   );
 };
 
 export default ClassManager;
+
