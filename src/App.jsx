@@ -6,11 +6,12 @@ import Login from "./components/Login";
 import Footer from "./components/Footer";
 import ClassList from "./components/ClassList";
 import ClassManager from "./components/ClassManager";
-import ClassForm from "./components/ClassForm";
+// import ClassForm from "./components/ClassForm";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import { FaChartBar, FaPlus, FaCog } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import ClassDetails from "./components/ClassDetails";
 
 import "./App.css";
 
@@ -47,11 +48,11 @@ function AppContent({ toggleSidebar, isSidebarVisible }) {
                   <span className="emoji">📊</span> Dashboard
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/ClassForm">
                   <span className="emoji">➕</span> Add Class
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/ClassManager">
                   <span className="emoji">⚙️</span> Class Manager
@@ -80,9 +81,11 @@ function AppContent({ toggleSidebar, isSidebarVisible }) {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/ClassList" element={<ClassList />} />
-            <Route path="/ClassForm" element={<ClassForm />} />
+            {/* <Route path="/ClassForm" element={<ClassForm />} /> */}
             <Route path="/ClassManager" element={<ClassManager />} />
             <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/class/:date" element={<ClassDetails />} />
+
           </Routes>
         </main>
       </div>
