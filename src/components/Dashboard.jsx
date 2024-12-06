@@ -1,3 +1,4 @@
+// Dashboard Component
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../components/Dashboard.css";
@@ -105,7 +106,11 @@ const Dashboard = () => {
                   <tbody>
                     {attendanceData.map((record) => (
                       <tr key={record.date}>
-                        <td>{record.className || "Class Not Found"}</td>
+                        <td>
+                          <Link to={`/class/${record.date}`} state={{ record }}>
+                            {record.className || "Class Not Found"}
+                          </Link>
+                        </td>
                         <td>{new Date(record.date).toLocaleDateString()}</td>
                         <td>{record.presentStudents.length}</td>
                         <td>{record.absentStudents.length}</td>

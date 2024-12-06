@@ -11,6 +11,7 @@ import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import { FaChartBar, FaPlus, FaCog } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import ClassDetails from "./components/ClassDetails";
 
 import "./App.css";
 
@@ -83,6 +84,8 @@ function AppContent({ toggleSidebar, isSidebarVisible }) {
             <Route path="/ClassForm" element={<ClassForm />} />
             <Route path="/ClassManager" element={<ClassManager />} />
             <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/class/:date" element={<ClassDetails />} />
+
           </Routes>
         </main>
       </div>
