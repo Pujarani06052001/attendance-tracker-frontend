@@ -1,7 +1,8 @@
+// Dashboard Component
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Dashboard.css";
-import { FaTable, FaChartBar, FaList, FaPlus, FaCog } from "react-icons/fa";
+import "../components/Dashboard.css";
+import { FaChartBar, FaPlus, FaCog } from "react-icons/fa";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -122,7 +123,11 @@ const Dashboard = () => {
                   <tbody>
                     {attendanceData.map((record) => (
                       <tr key={record.date}>
-                        <td>{record.className || "Class Not Found"}</td>
+                        <td>
+                          <Link to={`/class/${record.date}`} state={{ record }}>
+                            {record.className || "Class Not Found"}
+                          </Link>
+                        </td>
                         <td>{new Date(record.date).toLocaleDateString()}</td>
                         <td>{record.presentStudents.length}</td>
                         <td>{record.absentStudents.length}</td>

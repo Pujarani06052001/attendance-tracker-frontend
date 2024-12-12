@@ -96,7 +96,7 @@ input, button {
 }
 
 button {
-  background-color: #007bff;
+  background-color: green;
   color: white;
   font-weight: 600;
   cursor: pointer;
