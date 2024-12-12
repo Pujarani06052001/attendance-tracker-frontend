@@ -8,7 +8,7 @@ const ClassManagerForm = ({ onAddClass, onUpdateClass, currentClass, setCurrentC
     if (currentClass) {
       setFormData(currentClass);
     } else {
-      setFormData({ name: '', description: '', time: '', teacherId: '', students: [] });
+      setFormData({ name: '', description: '', time: '', students: [] });
     }
   }, [currentClass]);
 
@@ -24,7 +24,7 @@ const ClassManagerForm = ({ onAddClass, onUpdateClass, currentClass, setCurrentC
     } else {
       onAddClass(formData);
     }
-    setFormData({ name: '', description: '', time: '', teacherId: '', students: [] });
+    setFormData({ name: '', description: '', time: '', students: [] });
     setCurrentClass(null);
   };
 
@@ -33,7 +33,6 @@ const ClassManagerForm = ({ onAddClass, onUpdateClass, currentClass, setCurrentC
       <input type="text" name="name" placeholder="Class Name" value={formData.name} onChange={handleChange} required />
       <input type="text" name="description" placeholder="Description" value={formData.description} onChange={handleChange} required />
       <input type="text" name="time" placeholder="Class Time" value={formData.time} onChange={handleChange} required />
-      <input type="text" name="teacherId" placeholder="Teacher ID" value={formData.teacherId} onChange={handleChange} required />
       <button type="submit">{currentClass ? 'Update Class' : 'Add Class'}</button>
       {currentClass && <button type="button" className="cancel-button" onClick={() => setCurrentClass(null)}>Cancel</button>}
     </form>
