@@ -88,16 +88,6 @@ function AppContent({ toggleSidebar, isSidebarVisible }) {
 
           </Routes>
         </main>
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path='/ClassList' element={<ClassList/>}/>
-          <Route path='/ClassForm' element={<ClassForm/>}/>
-          <Route path='/ClassManager' element={<ClassManager/>}/>
-          <Route path='/Dashboard' element={<Dashboard/>}/>
-        </Routes>
       </div>
       <Footer />
     </>
