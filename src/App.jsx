@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import ClassDetails from "./components/ClassDetails";
 
 import "./App.css";
+import StudentDashboard from "./components/StudentDashboard";
 
 function App() {
   const [isSidebarVisible, setSidebarVisible] = useState(true);
@@ -89,6 +90,7 @@ function AppContent({ toggleSidebar, isSidebarVisible }) {
           </Routes>
         </main>
       </div>
+      <StudentDashboard/>
       <Footer />
     </>
   );
