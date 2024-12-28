@@ -1,7 +1,14 @@
-import React from 'react';
-import './ClassList.css';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./ClassList.css";
 
 const ClassList = ({ classes, onEdit, onDelete }) => {
+  const navigate = useNavigate();
+
+  const handleClassClick = (classItem) => {
+    navigate("/class-details", { state: { record: classItem } });
+  };
+
   return (
     <div className="class-list">
       <h2>Classes</h2>
@@ -12,7 +19,12 @@ const ClassList = ({ classes, onEdit, onDelete }) => {
           {classes.map((classItem) => (
             <li key={classItem._id}>
               <div>
-                <h3>{classItem.name}</h3>
+                <h3
+                  className="clickable-class-name"
+                  onClick={() => handleClassClick(classItem)}
+                >
+                  {classItem.name}
+                </h3>
                 <p>{classItem.description}</p>
                 <p>Time: {classItem.time}</p>
                 <button onClick={() => onEdit(classItem)}>Edit</button>

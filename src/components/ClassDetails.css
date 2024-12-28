@@ -1,127 +1,25 @@
-/* Modal background */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  /* Modal content */
-  .modal-content {
-    background: linear-gradient(135deg, #aeda49, #68b347);
-    padding: 25px 35px;
-    border-radius: 12px;
-    max-width: 600px;
-    width: 90%;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
-    text-align: left;
-    position: relative;
-    animation: slideIn 0.4s ease-out;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  /* Close button */
-  .close-button {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #ffffff;
-    transition: color 0.3s ease;
-  }
-  
-  /* Close button hover effect */
-  .close-button:hover {
-    color: #ff6b6b;
-  }
-  
-  /* Heading style */
-  .modal-content h1 {
-    margin-bottom: 20px;
-    color: #fff;
-    font-size: 26px;
-    font-weight: bold;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Paragraphs style */
-  .modal-content p {
-    margin: 12px 0;
-    color: #f8f8f8;
-    font-size: 18px;
-    line-height: 1.6;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    padding-bottom: 8px;
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      background-color: rgba(0, 0, 0, 0);
-    }
-    to {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-  }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  /* Buttons inside modal */
-  .modal-content .action-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  
-  .modal-content .action-buttons button {
-    background: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .modal-content .action-buttons button:hover {
-    background: #43a047;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .modal-content {
-      padding: 20px;
-      font-size: 16px;
-    }
-  
-    .modal-content h1 {
-      font-size: 22px;
-    }
-  
-.modal-content p {
-    font-size: 16px;
-    }
-  }
-  
+.class-details {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.details-container {
+  margin-bottom: 20px;
+}
+
+.back-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 15px;
+  background-color: rgb(53, 201, 53);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
