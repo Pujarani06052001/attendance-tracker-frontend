@@ -84,7 +84,9 @@ function AppContent({ toggleSidebar, isSidebarVisible }) {
             {/* <Route path="/ClassForm" element={<ClassForm />} /> */}
             <Route path="/ClassManager" element={<ClassManager />} />
             <Route path="/Dashboard" element={<Dashboard />} />
-            <Route path="/class/:date" element={<ClassDetails />} />
+            {/* <Route path="/class/:date" element={<ClassDetails />} /> */}
+            <Route path="/class-details" element={<ClassDetails />} />
+
 
           </Routes>
         </main>

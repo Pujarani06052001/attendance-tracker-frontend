@@ -7,37 +7,39 @@ const ClassDetails = () => {
   const navigate = useNavigate();
   const { record } = location.state || {};
 
-  const closeModal = () => {
+  const goBack = () => {
     navigate(-1); // Navigates to the previous page
   };
 
   // Helper function to extract names
   const getStudentNames = (students) => {
-    return students.map(student => student.name).join(", ") || "None";
+    return students && students.length > 0
+      ? students.map((student) => student.name).join(", ")
+      : "None";
   };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <button className="close-button" onClick={closeModal}>
-          &times;
-        </button>
-        <h1>Class Details</h1>
-        {record ? (
-          <>
-            <p><strong>Class Name:</strong> {record.className || "N/A"}</p>
-            <p><strong>Date:</strong> {new Date(record.date).toLocaleDateString()}</p>
-            <p>
-              <strong>Present Students ({record.presentStudents.length}):</strong> 
-            </p>
-            <p>
-              <strong>Absent Students ({record.absentStudents.length}):</strong> 
-            </p>
-          </>
-        ) : (
-          <p>No data available</p>
-        )}
-      </div>
+    <div className="class-details">
+      <h1>Class Details</h1>
+      {record ? (
+        <div className="details-container">
+          <p><strong>Class Name:</strong> {record.className || "N/A"}</p>
+          <p><strong>Date:</strong> {record.date ? new Date(record.date).toLocaleDateString() : "N/A"}</p>
+          <p>
+            <strong>Present Students ({record.presentStudents?.length || 0}):</strong>{" "}
+            {getStudentNames(record.presentStudents)}
+          </p>
+          <p>
+            <strong>Absent Students ({record.absentStudents?.length || 0}):</strong>{" "}
+            {getStudentNames(record.absentStudents)}
+          </p>
+        </div>
+      ) : (
+        <p>No data available</p>
+      )}
+      <button className="back-button" onClick={goBack}>
+        Go Back
+      </button>
     </div>
   );
 };
